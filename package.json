@@ -1,5 +1,5 @@
 {
-  "name": "@jimp/js-tiff",
+  "name": "@jimp/plugin-fisheye",
   "version": "1.6.0",
   "repository": "jimp-dev/jimp",
   "engines": {
@@ -15,12 +15,17 @@
   },
   "author": "Andrew Lisowski <lisowski54@gmail.com>",
   "license": "MIT",
+  "dependencies": {
+    "@jimp/types": "1.6.0",
+    "@jimp/utils": "1.6.0",
+    "zod": "^3.23.8"
+  },
   "devDependencies": {
     "@jimp/config-eslint": "1.6.0",
     "@jimp/config-typescript": "1.6.0",
     "@jimp/config-vitest": "1.6.0",
+    "@jimp/core": "1.6.0",
     "@jimp/test-utils": "1.6.0",
-    "@types/node": "^18.19.48",
     "@vitest/browser": "^2.0.5",
     "eslint": "^9.9.1",
     "tshy": "^3.0.2",
@@ -53,11 +58,6 @@
   "main": "./dist/commonjs/index.js",
   "types": "./dist/commonjs/index.d.ts",
   "type": "module",
-  "dependencies": {
-    "@jimp/core": "1.6.0",
-    "@jimp/types": "1.6.0",
-    "utif2": "^4.1.0"
-  },
   "publishConfig": {
     "access": "public"
   },

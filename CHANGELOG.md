@@ -15,6 +15,7 @@
 #### ⚠️ Pushed to `main`
 
 - upgrade tshy ([@hipstersmoothie](https://github.com/hipstersmoothie))
+- update more docs ([@hipstersmoothie](https://github.com/hipstersmoothie))
 
 #### Authors: 1
 

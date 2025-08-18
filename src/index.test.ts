@@ -1,32 +1,48 @@
 import { expect, test, describe } from "vitest";
+
+import { makeTestImage } from "@jimp/test-utils";
 import { createJimp } from "@jimp/core";
-import { getTestImagePath } from "@jimp/test-utils";
 
-import tiff from "./index.js";
+import { methods } from "./index.js";
 
-const jimp = createJimp({ formats: [tiff] });
+const Jimp = createJimp({ plugins: [methods] });
 
-describe("TIFF", () => {
-  test("load TIFF", async () => {
-    const image = await jimp.read(getTestImagePath("rgb.tiff"));
+describe("Fisheye", () => {
+  test("should create fisheye lens to image", () => {
+    const img = Jimp.fromBitmap(
+      makeTestImage(
+        "0000000000",
+        "0001221000",
+        "0022222200",
+        "0122112210",
+        "0221001220",
+        "0221001220",
+        "0122112210",
+        "0022222200",
+        "0001221000",
+        "0000000000",
+      ),
+    );
 
-    expect(image.getPixelColor(10, 10)).toBe(0xa4988bff);
-    expect(image.getPixelColor(220, 190)).toBe(0xe0d7ddff);
-    expect(image.getPixelColor(350, 130)).toBe(0x565433ff);
+    expect(img.fisheye()).toMatchSnapshot();
   });
 
-  test("export TIFF", async () => {
-    const image = jimp.fromBitmap({
-      width: 3,
-      height: 3,
-      data: [
-        0xff0000ff, 0xff0080ff, 0xff00ffff, 0xff0080ff, 0xff00ffff, 0x8000ffff,
-        0xff00ffff, 0x8000ffff, 0x0000ffff,
-      ],
-    });
-    const buffer = await image.getBuffer("image/tiff");
+  test("should create fisheye lens to image with radius", async () => {
+    const imgNormal = Jimp.fromBitmap(
+      makeTestImage(
+        "0000000000",
+        "0000000000",
+        "0000000000",
+        "0000000000",
+        "0001111000",
+        "0001111000",
+        "0000000000",
+        "0000000000",
+        "0000000000",
+        "0000000000",
+      ),
+    );
 
-    // eslint-disable-next-line no-control-regex
-    expect(buffer.toString()).toMatch(/^MM\u0000*\u0000/);
+    expect(imgNormal.fisheye({ radius: 1.8 })).toMatchSnapshot();
   });
 });
