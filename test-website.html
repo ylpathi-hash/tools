@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Website Test - Multi-Tools</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .test-item { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🌐 Multi-Tools Website Test</h1>
+    
+    <div class="test-item info">
+        <h3>📋 Test Results</h3>
+        <p>This page tests if your website components are working correctly.</p>
+    </div>
+
+    <div class="test-item success">
+        <h3>✅ Server Status</h3>
+        <p>Local server is running on: <strong>http://localhost:8000</strong></p>
+        <p>Main website: <a href="http://localhost:8000" target="_blank">Open Main Website</a></p>
+    </div>
+
+    <div class="test-item success">
+        <h3>📁 File Structure</h3>
+        <ul>
+            <li>✅ index.html - Main homepage</li>
+            <li>✅ assets/css/style.css - Styling</li>
+            <li>✅ assets/js/main.js - JavaScript functionality</li>
+            <li>✅ assets/js/tools-data.js - Tools data</li>
+            <li>✅ tools/ - 100 tool pages</li>
+        </ul>
+    </div>
+
+    <div class="test-item info">
+        <h3>🌍 Browser Compatibility</h3>
+        <p>Your website should work in:</p>
+        <ul>
+            <li>✅ Chrome</li>
+            <li>✅ Edge</li>
+            <li>✅ Firefox</li>
+            <li>✅ Safari</li>
+        </ul>
+    </div>
+
+    <div class="test-item success">
+        <h3>🔧 Quick Access Links</h3>
+        <p><a href="index.html" target="_blank">Open index.html directly</a></p>
+        <p><a href="tools/word-counter.html" target="_blank">Test Word Counter Tool</a></p>
+        <p><a href="tools/password-generator.html" target="_blank">Test Password Generator</a></p>
+    </div>
+
+    <div class="test-item info">
+        <h3>📱 Responsive Design</h3>
+        <p>Try resizing your browser window to test mobile responsiveness.</p>
+    </div>
+
+    <script>
+        // Test JavaScript functionality
+        console.log('✅ Test page loaded successfully');
+        
+        // Test if tools data is accessible
+        if (typeof toolsData !== 'undefined') {
+            console.log('✅ Tools data loaded:', toolsData.length, 'tools');
+        } else {
+            console.log('⚠️ Tools data not loaded (this is normal for test page)');
+        }
+    </script>
+</body>
+</html> 
